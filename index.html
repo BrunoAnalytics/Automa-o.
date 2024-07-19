@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Integração Trello e Asana</title>
+</head>
+<body>
+    <div class="welcome-message">
+        <h2>Bem-Vindo</h2>
+    </div>
+    <div class="container">
+        <div class="selection-container">
+            <form id="form-novo-projeto">
+                <label for="select-board">Selecione um quadro do Trello:</label>
+                <select id="select-board" onchange="storeSelectedBoardId()">
+                    {% for board in trello_boards %}
+                        <option value="{{ board.id }}">{{ board.name }}</option>
+                    {% endfor %}
+                </select>
+                <button type="button" onclick="showLists()">Mostrar Listas</button>
+            </form>
+            <input type="hidden" id="selected-board-id">
+            <div id="lists-container">
+                <!-- Aqui serão exibidas as listas do Trello -->
+            </div>
+            <button id="executar-automacao" onclick="executarAutomacao()">Executar Automação</button>
+            <div id="loading" style="display: none;">
+                <img src="{{ url_for('static', filename='loading.gif') }}" alt="Loading...">
+            </div>
+            <div id="success-message" style="display: none;">
+                Automação concluída com sucesso!
+            </div>
+            <div id="resultado"></div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

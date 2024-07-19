@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Fundo da tela preto */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    height: 100vh;
+    margin: 0;
+    color: #fff; /* Texto branco padrão para todo o conteúdo */
+    background-image: url("wallpaper_sm.png"); /* Imagem de fundo */
+    background-size: cover; /* Ajuste para cobrir toda a área do body sem distorcer */
+    background-position: center; /* Centralizando a imagem */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+    position: relative; /* Garante o posicionamento correto dos elementos */
+    z-index: 0; /* Mantém a imagem de fundo atrás de todos os outros elementos */
+}
+
+.welcome-message {
+    position: absolute;
+    top: 20px; /* Posição vertical ajustada para a mensagem "Bem-Vindo" */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    z-index: 2; /* Garante que a mensagem "Bem-Vindo" fique acima de tudo */
+}
+
+.container {
+    width: 100%;
+    max-width: 600px; /* Define uma largura máxima para o conteúdo */
+    padding: 60px 20px 20px; /* Aumenta o padding-top para afastar mais o conteúdo do topo */
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente para melhor legibilidade */
+    text-align: center; /* Centraliza o conteúdo dentro do container */
+    position: absolute; /* Para garantir o posicionamento dos elementos internos */
+    z-index: 1; /* Garante que o conteúdo fique acima da imagem de fundo */
+    top: -20px; /* Ajusta a posição vertical do container */
+}
+
+.selection-container {
+    margin-top: 40px; /* Ajusta o espaçamento entre a mensagem "Bem-Vindo" e o conteúdo do Trello */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50; /* Cor verde para os botões */
+    color: #fff; /* Texto branco nos botões */
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #388e3c; /* Tom mais escuro de verde no hover */
+}
+
+.selection-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #000;
+    margin-top: 20px;
+    text-align: center; /* Centraliza o texto horizontalmente */
+    padding: 10px; /* Espaçamento interno para o texto */
+}
+
+.selection-item:hover {
+    background-color: rgba(240, 240, 240, 0.9);
+}
+
+.selection-item.selected {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.selection-item span {
+    display: block; /* Garante que o texto se ajuste dentro do container */
+    overflow: hidden; /* Evita que o texto vaze para fora do container */
+    text-overflow: ellipsis; /* Adiciona reticências ao final do texto se ele for muito longo */
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+}
